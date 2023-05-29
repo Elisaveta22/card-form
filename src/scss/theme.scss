@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+$white: #fff;
+$deep-violet: #21092f;
+$purplish-gray: #8f8694;
+$light-gray: #dfdee0;
+$red: #ff5050;
+$gradient: linear-gradient(163.95deg, #6348fe 4.74%, #610595 88.83%);
+$styled-card-black-line: #2f2f2f;
+$styled-card-gray-line: #adb5be;
+$font: 'Space Grotesk';
+
+@function toRem($value) {
+  $remValue: calc($value / 16) + rem;
+  @return $remValue;
+}
+
+@mixin body-s {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: toRem(12);
+  line-height: toRem(15);
+}
+
+@mixin body-m {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: toRem(12);
+  line-height: toRem(15);
+  letter-spacing: toRem(2);
+  text-transform: uppercase;
+}
+
+@mixin body-l {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: toRem(14);
+  line-height: toRem(18);
+
+  /* identical to box height */
+  letter-spacing: toRem(2);
+  text-transform: uppercase;
+}
+
+@mixin heading-l {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: toRem(18);
+  line-height: toRem(23);
+}
+
+@mixin heading-xl {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: toRem(28);
+  line-height: toRem(36);
+
+  /* identical to box height */
+  letter-spacing: toRem(3.42222);
+}
