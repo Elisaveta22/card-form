@@ -107,7 +107,6 @@ body {
     width: 381px;
     display: flex;
     flex-direction: column;
-    display: none;
 
     @include md {
       min-width: 327px;
@@ -219,7 +218,7 @@ body {
   }
 
   .thank-you-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
