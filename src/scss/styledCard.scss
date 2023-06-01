@@ -90,6 +90,8 @@
       flex-direction: row;
       justify-content: space-between;
       margin-top: 25.5px;
+      width: 100%;
+      gap: 20px;
 
       @include lg {
         margin-top: 17px;
@@ -105,6 +107,16 @@
           line-height: toRem(11);
           letter-spacing: toRem(1.28571);
         }
+      }
+
+      .styled-card-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .styled-card-date {
+        flex-shrink: 0;
       }
     }
   }
@@ -148,10 +160,13 @@
 
       .styled-card-cvv {
         @include body-l;
-        font-size: 9px;
-        line-height: 11px;
-        text-align: right;
-        letter-spacing: 1.28571px;
+
+        @include lg {
+          font-size: 9px;
+          line-height: 11px;
+          text-align: right;
+          letter-spacing: 1.28571px;
+        }
       }
 
       @include lg {
