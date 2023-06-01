@@ -1,0 +1,181 @@
+@import 'breakpoints.scss';
+@import 'theme.scss';
+
+.styled-card-container {
+  z-index: 100;
+  width: 541px;
+  display: flex;
+  flex-direction: column;
+  gap: 37px;
+
+  @include lg {
+    width: 326px;
+    gap: 20px;
+  }
+
+  @include md {
+    width: 343px;
+    height: 251px;
+    gap: 0;
+  }
+
+  .styled-card {
+    position: relative;
+    width: 447px;
+    height: 245px;
+
+    @include lg {
+      width: 286px;
+      height: 157px;
+    }
+
+    .styled-card-bg-container {
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .styled-card-front {
+    display: flex;
+    flex-direction: column;
+    padding: 28px 32px 26px;
+    justify-content: flex-start;
+
+    @include lg {
+      padding: 17.6px 20.89px 19px 19px;
+    }
+
+    @include md {
+      order: 1;
+      margin-top: -63px;
+    }
+
+    .card-front-circles {
+      height: 47px;
+      width: 84px;
+
+      @include lg {
+        width: 54px;
+        height: 30px;
+      }
+    }
+
+    .styled-card-number {
+      margin-top: 64px;
+      color: $white;
+
+      @include heading-xl;
+
+      @include lg {
+        margin-top: 37px;
+        @include heading-l;
+        letter-spacing: toRem(2.2);
+      }
+    }
+
+    .styled-card-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 25.5px;
+
+      @include lg {
+        margin-top: 17px;
+      }
+
+      h3 {
+        color: $white;
+
+        @include body-l;
+
+        @include lg {
+          font-size: toRem(9);
+          line-height: toRem(11);
+          letter-spacing: toRem(1.28571);
+        }
+      }
+    }
+  }
+
+  .styled-card-back {
+    align-self: flex-end;
+    padding-top: 23px;
+    padding-bottom: 47px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include lg {
+      margin-top: 0px;
+      padding-bottom: 23px;
+    }
+
+    @include md {
+      order: 0;
+    }
+
+    .black-line {
+      width: 100%;
+      height: 54px;
+      background-color: $styled-card-black-line;
+
+      @include lg {
+        height: 34.6px;
+      }
+    }
+
+    .gray-line {
+      margin-top: 24px;
+      border-radius: 4px;
+      background-color: $styled-card-gray-line;
+      width: 361px;
+      height: 38px;
+      color: $white;
+      text-align: end;
+      padding: 10px;
+
+      .styled-card-cvv {
+        @include body-l;
+        font-size: 9px;
+        line-height: 11px;
+        text-align: right;
+        letter-spacing: 1.28571px;
+      }
+
+      @include lg {
+        width: 231px;
+        height: 29px;
+        padding: 9px;
+        margin-top: 15px;
+      }
+    }
+
+    .lines {
+      margin-top: 33px;
+      width: 186px;
+      height: 26px;
+
+      @include lg {
+        margin-top: 23px;
+        width: 118px;
+        height: 16.5px;
+      }
+
+      @include md {
+        visibility: hidden;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 @import 'theme.scss';
+@import 'breakpoints.scss';
 
 $styled-card-width: 447px;
 $styled-card-margin-left: 258px;
@@ -15,21 +16,49 @@ body {
   height: 100vh;
   min-height: 600px;
   width: 100vw;
+  min-width: 360px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 127px;
+
+  @include xlg {
+    gap: 70px;
+  }
+
+  @include md {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  @include sm {
+    overflow-x: auto;
+  }
 }
 
 .styled-card-section {
   position: relative;
   height: 100%;
-  width: $styled-card-width + $styled-card-margin-left;
+  max-width: $styled-card-width + $styled-card-margin-left;
+  padding-left: 164px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-shrink: 0;
+
+  @include xlg {
+    padding-left: 70px;
+  }
+
+  @include md {
+    width: 100%;
+    height: 283px;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-top: 20px;
+  }
 
   .styled-card-section-bg-container {
     position: absolute;
@@ -39,108 +68,24 @@ body {
     top: 0;
     bottom: 0;
 
+    @include xlg {
+      width: 483px - 70px;
+    }
+
+    @include lg {
+      width: 270px;
+    }
+
+    @include md {
+      left: auto;
+      width: 100vw;
+      min-width: 100%;
+      height: 240px;
+    }
+
     img {
       height: 100%;
       width: 100%;
-    }
-  }
-
-  .styled-card-container {
-    z-index: 100;
-    width: 541px;
-    display: flex;
-    flex-direction: column;
-    gap: 37px;
-
-    .styled-card {
-      position: relative;
-      width: 447px;
-      height: 245px;
-
-      .styled-card-bg-container {
-        z-index: -1;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        border-radius: 10px;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-
-        img {
-          height: 100%;
-          width: 100%;
-        }
-      }
-    }
-
-    .styled-card-front {
-      display: flex;
-      flex-direction: column;
-      padding: 28px 32px 26px;
-      justify-content: flex-start;
-
-      .card-front-circles {
-        height: 47px;
-        width: 84px;
-      }
-
-      .styled-card-number {
-        margin-top: 64px;
-        color: $white;
-
-        @include heading-xl;
-      }
-
-      .styled-card-footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 25.5px;
-
-        h3 {
-          color: $white;
-
-          @include body-l;
-        }
-      }
-    }
-
-    .styled-card-back {
-      align-self: flex-end;
-      padding-top: 23px;
-      padding-bottom: 47px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .black-line {
-        width: 100%;
-        height: 54px;
-        background-color: $styled-card-black-line;
-      }
-
-      .gray-line {
-        margin-top: 24px;
-        border-radius: 4px;
-        background-color: $styled-card-gray-line;
-        width: 361px;
-        height: 38px;
-        color: $white;
-        text-align: end;
-        padding: 10px;
-
-        .styled-card-cvv {
-          @include body-l;
-        }
-      }
-
-      .lines {
-        margin-top: 33px;
-        width: 186px;
-        height: 26px;
-      }
     }
   }
 }
@@ -153,10 +98,21 @@ body {
   justify-content: flex-start;
   padding-right: 100px;
 
+  @include md {
+    justify-content: center;
+    padding: 0px 24px 45px;
+  }
+
   .form {
     width: 381px;
     display: flex;
     flex-direction: column;
+    display: none;
+
+    @include md {
+      min-width: 327px;
+      width: 327px;
+    }
 
     label,
     #card-expiry-date {
@@ -230,6 +186,10 @@ body {
 
       input {
         width: 191px;
+
+        @include md {
+          width: 100%;
+        }
       }
     }
 
@@ -243,18 +203,61 @@ body {
     input[type='number'] {
       -moz-appearance: textfield;
     }
+  }
 
-    input[type='submit'] {
-      background-color: $deep-violet;
-      color: $white;
-      cursor: pointer;
-      margin: 0;
+  input[type='submit'] {
+    background-color: $deep-violet;
+    color: $white;
+    cursor: pointer;
+    margin: 0;
+
+    @include heading-l;
+  }
+
+  input[type='submit']:active {
+    transform: scale(0.98);
+  }
+
+  .thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 381px;
+
+    @include md {
+      min-width: 327px;
+      width: 327px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .thank-you-heading {
+      color: $deep-violet;
+      margin-top: 35px;
+
+      @include heading-xl;
+    }
+
+    .thank-you-paragraph {
+      color: $purplish-gray;
+      margin-top: 16px;
 
       @include heading-l;
     }
 
-    input[type='submit']:active {
-      transform: scale(0.98);
+    .btn {
+      background-color: $deep-violet;
+      width: 100%;
+      margin-top: 48px;
+      border: none;
+      border-radius: 8px;
+      padding: 15px;
+      color: $white;
+      cursor: pointer;
     }
   }
 }
