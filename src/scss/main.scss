@@ -1,5 +1,265 @@
-$primary-color: pink;
+@import 'theme.scss';
+@import 'breakpoints.scss';
+
+$styled-card-width: 447px;
+$styled-card-margin-left: 258px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-color: $primary-color;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  min-height: 600px;
+  width: 100vw;
+  min-width: 360px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 127px;
+
+  @include xlg {
+    gap: 70px;
+  }
+
+  @include md {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  @include sm {
+    overflow-x: auto;
+  }
+}
+
+.styled-card-section {
+  position: relative;
+  height: 100%;
+  max-width: $styled-card-width + $styled-card-margin-left;
+  padding-left: 164px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+
+  @include xlg {
+    padding-left: 70px;
+  }
+
+  @include md {
+    width: 100%;
+    height: 283px;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
+  .styled-card-section-bg-container {
+    position: absolute;
+    height: 100%;
+    width: 483px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    @include xlg {
+      width: 483px - 70px;
+    }
+
+    @include lg {
+      width: 270px;
+    }
+
+    @include md {
+      left: auto;
+      width: 100vw;
+      min-width: 100%;
+      height: 240px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.main-section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 100px;
+
+  @include md {
+    justify-content: center;
+    padding: 0px 24px 45px;
+  }
+
+  .form {
+    width: 381px;
+    display: flex;
+    flex-direction: column;
+
+    @include md {
+      min-width: 327px;
+      width: 327px;
+    }
+
+    label,
+    #card-expiry-date {
+      color: $deep-violet;
+
+      @include body-m;
+    }
+
+    input {
+      margin-top: 9px;
+      margin-bottom: 26px;
+      height: 45px;
+      border: 1px solid $light-gray;
+      border-radius: 8px;
+      padding: 11px 16px;
+      color: $deep-violet;
+
+      @include heading-l;
+    }
+
+    input::placeholder {
+      color: $deep-violet;
+      opacity: 0.25;
+
+      @include heading-l;
+    }
+
+    input:focus {
+      outline: 1px solid $gradient;
+    }
+
+    div[data-lastpass-icon-root] {
+      display: none;
+    }
+
+    .date-cvv-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+
+      input {
+        margin-bottom: 40px;
+      }
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+    }
+
+    .fieldset {
+      display: flex;
+      flex-direction: column;
+
+      .fieldset-body {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      label {
+        display: none;
+      }
+
+      input {
+        width: 80px;
+      }
+    }
+
+    .cvv-container {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 191px;
+
+        @include md {
+          width: 100%;
+        }
+      }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  input[type='submit'] {
+    background-color: $deep-violet;
+    color: $white;
+    cursor: pointer;
+    margin: 0;
+
+    @include heading-l;
+  }
+
+  input[type='submit']:active {
+    transform: scale(0.98);
+  }
+
+  .thank-you-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 381px;
+
+    @include md {
+      min-width: 327px;
+      width: 327px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .thank-you-heading {
+      color: $deep-violet;
+      margin-top: 35px;
+
+      @include heading-xl;
+    }
+
+    .thank-you-paragraph {
+      color: $purplish-gray;
+      margin-top: 16px;
+
+      @include heading-l;
+    }
+
+    .btn {
+      background-color: $deep-violet;
+      width: 100%;
+      margin-top: 48px;
+      border: none;
+      border-radius: 8px;
+      padding: 15px;
+      color: $white;
+      cursor: pointer;
+    }
+  }
 }

@@ -4,50 +4,72 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/scss/main.scss" />
+    <link rel="stylesheet" href="./src/scss/index.scss" />
     <title></title>
   </head>
   <body>
     <section class="styled-card-section">
-      <div><img src="/src/images/styled-card-section-bg.png" /></div>
+      <div class="styled-card-section-bg-container"><img src="/src/images/styled-card-section-bg.png" /></div>
       <div class="styled-card-container">
-        <div class="styled-card-front">
-          <img src="/src/images/styled-card-bg-front.png" alt="" class="styled-card-bg" />
-          <img src="/src/images/styled-card-front-circles.svg" />
-          <h2 class="styled-card-number">0000 0000 0000 0000</h2>
-          <h3 class="styled-card-name">JANE APPLESEED</h3>
-          <h3 class="styled-card-date">00/00</h3>
-        </div>
-        <div class="styled-card-back">
-          <img src="/src/images/styled-card-bg-back.png" alt="" class="styled-card-bg" />
+        <div class="styled-card-front styled-card">
+          <div class="styled-card-bg-container">
+            <img src="/src/images/styled-card-bg-front.png" alt="" class="styled-card-bg" />
+          </div>
 
-          <div class="styled-card-black-line"></div>
-          <div class="styled-card-gray-line"><h2 class="styled-card-cvv">000</h2></div>
-          <img src="/src/images/styled-card-back-lines.png" alt="" class="styled-card-lines" />
+          <img src="/src/images/styled-card-front-circles.svg" class="card-front-circles" />
+          <h2 class="styled-card-number">0000 0000 0000 0000</h2>
+          <div class="styled-card-footer">
+            <h3 class="styled-card-name">Jane Appleseed</h3>
+            <h3 class="styled-card-date">00/00</h3>
+          </div>
+        </div>
+        <div class="styled-card-back styled-card">
+          <div class="styled-card-bg-container">
+            <img src="/src/images/styled-card-bg-back.png" alt="" class="styled-card-bg" />
+          </div>
+
+          <div class="black-line"></div>
+          <div class="gray-line"><h2 class="styled-card-cvv">000</h2></div>
+          <img src="/src/images/styled-card-back-lines.png" alt="" class="lines" />
         </div>
       </div>
     </section>
 
     <section class="main-section">
-      <form action="">
+      <form action="" class="form">
         <label for="cardholder-name">cardholder name</label>
         <input id="cardholder-name" type="text" placeholder="e.g. Jane Appleseed" />
         <label for="card-number">card number</label>
         <input id="card-number" type="text" placeholder="e.g. 1234 5678 9123 0000" />
 
-        <fieldset>
-          <legend>Exp. Date (MM/YY)</legend>
-          <label for="card-expiry-month">expiry month</label>
-          <input type="number" id="card-expiry-month" placeholder="MM" />
-          <label for="card-expiry-year">expiry year</label>
-          <input type="number" id="card-expiry-year" placeholder="YY" />
-        </fieldset>
+        <div class="date-cvv-container">
+          <fieldset aria-labelledby="card-expiry-date">
+            <div class="fieldset">
+              <div id="card-expiry-date">Exp. Date (MM/YY)</div>
+              <div class="fieldset-body">
+                <label for="card-expiry-month">expiry month</label>
+                <input type="number" id="card-expiry-month" placeholder="MM" />
+                <label for="card-expiry-year">expiry year</label>
+                <input type="number" id="card-expiry-year" placeholder="YY" />
+              </div>
+            </div>
+          </fieldset>
 
-        <label for="card-cvv">cvv</label>
-        <input type="number" id="card-cvv" placeholder="e.g. 123" />
+          <div class="cvv-container">
+            <label for="card-cvv">cvv</label>
+            <input type="number" id="card-cvv" placeholder="e.g. 123" />
+          </div>
+        </div>
 
         <input type="submit" value="Confirm" />
       </form>
+
+      <div class="thank-you-container">
+        <img src="/src/images/thank-you-icon.svg" alt="" />
+        <h1 class="thank-you-heading">THANK YOU!</h1>
+        <p class="thank-you-paragraph">We’ve added your card details</p>
+        <input type="submit" value="Continue" class="btn" />
+      </div>
     </section>
     <script type="module" src="/src/main.ts"></script>
   </body>
