@@ -120,6 +120,19 @@ body {
       @include body-m;
     }
 
+    .input-error {
+      border: 1px solid $red;
+      margin-bottom: 0px;
+    }
+
+    .error-msg {
+      color: $red;
+      margin-top: 8px;
+      margin-bottom: 26px;
+
+      @include body-s;
+    }
+
     input {
       margin-top: 9px;
       margin-bottom: 26px;
