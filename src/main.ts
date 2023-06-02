@@ -5,7 +5,7 @@ function init(): void {
 window.onload = init;
 
 function doesContainOnlyLetters(str: string): boolean {
-  return /^[A-Za-z]*$/.test(str);
+  return /^[A-Za-z\s]*$/.test(str);
 }
 
 function displayInputError(inputField: HTMLInputElement, errorMsg: string): void {
